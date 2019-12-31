@@ -10,5 +10,10 @@ class Fcuser(models.Model):
     registerd_dttm = models.DateTimeField(auto_now_add=True,
                                           verbose_name='등록시간')
     
+    def __str__(self):
+        return self.username
+
     class Meta:
         db_table = 'fastcampus_fcuser'
+        verbose_name = '패스트캠퍼스 사용자'
+        verbose_name_plural = '패스트캠퍼스 사용자'
