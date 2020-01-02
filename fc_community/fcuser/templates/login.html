@@ -15,15 +15,13 @@
   <div class="col-12">
     <form action="." method="POST">
       {% csrf_token %}
-      <div class="form-group">
-        <label for="username">사용자 이름</label>
-        <input type="text" class="form-control" id="username" name="username" placeholder="사용자 이름">
-
-        <label for="password">비밀번호</label>
-        <input type="password" class="form-control" id="password" name="password" placeholder="비밀번호">
-
-        <button type="submit" class="btn btn-primary">로그인</button>
-      </div>
+      {% for field in form %}
+        <div class ="form-group">
+          <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+          <input type="{{ field.field.widget.input_type }}" class="" id="{{ field.id_for_label }}" placeholder="{{ field.label }}" name="{{field.name}}" />
+        </div>
+      {% endfor %}
+      <button type="submit" class="btn btn-primary">로그인</button>
     </form>
   </div>
 </div>
