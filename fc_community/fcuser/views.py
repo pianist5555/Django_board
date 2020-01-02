@@ -44,7 +44,13 @@ def home(request):
     return HttpResponse('Home!')
 
 def login(request):
-    form = LoginForm()
+    if request.method == 'POST':
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            return redirect('/')
+    elif request.method == 'GET':
+        form = LoginForm()
+
     return render(request, 'login.html', {'form': form})    
 
 # def login(request):
