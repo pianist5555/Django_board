@@ -1,5 +1,4 @@
 {% extends "base.html" %}
-
 {% block contents %}
 <div class="row mt-5">
   <div class="col-12 text-center">
@@ -10,26 +9,28 @@
   <div class="col-12">
     {{ error }}
   </div>
-</div> 
+</div>
 <div class="row mt-5">
   <div class="col-12">
-    <form action="." method="POST">
+    <form method="POST" action=".">
       {% csrf_token %}
       <div class="form-group">
         <label for="username">사용자 이름</label>
-        <input type="text" class="form-control" id="username" name="username" placeholder="사용자 이름">
-        
-        <label for="usermail">이메일</label>
-        <input type="text" class="form-control" id="usermail" name="usermail" placeholder="이메일">
-
-        <label for="password">비밀번호</label>
-        <input type="password" class="form-control" id="password" name="password" placeholder="비밀번호">
-
-        <label for="re-password">비밀번호 확인</label>
-        <input type="re-password" class="form-control" id="re-password" name="re-password" placeholder="비밀번호 확인">
-
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <input type="text" class="form-control" id="username" placeholder="사용자 이름" name="username" />
       </div>
+      <div class="form-group">
+        <label for="useremail">사용자 이메일</label>
+        <input type="email" class="form-control" id="useremail" placeholder="사용자 이메일" name="useremail" />
+      </div>
+      <div class="form-group">
+        <label for="password">비밀번호</label>
+        <input type="password" class="form-control" id="password" placeholder="비밀번호" name="password" />
+      </div>
+      <div class="form-group">
+        <label for="re-password">비밀번호 확인</label>
+        <input type="password" class="form-control" id="re-password" placeholder="비밀번호 확인" name="re-password" />
+      </div>
+      <button type="submit" class="btn btn-primary">등록</button>
     </form>
   </div>
 </div>
